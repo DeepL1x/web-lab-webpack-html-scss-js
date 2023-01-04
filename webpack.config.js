@@ -26,7 +26,8 @@ const config = {
         ]
     },
     plugins: [
-        new BrowserSyncPlugin({
+       
+	new BrowserSyncPlugin({
             host: localServer.path,
             port: localServer.port,
             files: [],
@@ -53,13 +54,11 @@ const config = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
         }),
-        new CopyWebpackPlugin([
-        {
-            from: path.resolve(__dirname, 'src', 'images'),
-            to: path.resolve(__dirname, 'dist', 'images'),
-            toType: 'dir',
-        },
-        ])
+	new CopyWebpackPlugin(
+            [
+                { from: path.resolve(__dirname, 'src', 'images'), to: path.resolve(__dirname, 'dist', 'images') },
+            ]
+        ),
     ]
     
 };
